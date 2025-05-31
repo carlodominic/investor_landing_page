@@ -9,36 +9,41 @@ interface TeamMember {
   image: string;
 }
 
-interface AboutSectionProps {
+type AboutSectionProps = {
+  id: string;
   title?: string;
   vision?: string;
   teamMembers?: TeamMember[];
-}
+};
 
-const AboutSection = ({
-  title = "Meet Our Team",
-  vision = "Our vision is to revolutionize the investment landscape by creating accessible, transparent financial tools that empower individuals to build wealth with confidence. We believe that financial freedom should be attainable for everyone, not just the privileged few.",
-  teamMembers = [
-    {
-      name: "Alex Johnson",
-      role: "Founder & CEO",
-      bio: "Former investment banker with 10+ years experience at Goldman Sachs. MBA from Harvard Business School.",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
-    },
-    {
-      name: "Sarah Chen",
-      role: "CTO",
-      bio: "Ex-Google engineer with expertise in AI and machine learning. PhD in Computer Science from Stanford.",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "Head of Product",
-      bio: "Previously led product teams at Stripe and Square. Passionate about creating intuitive financial products.",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
-    },
-  ],
-}: AboutSectionProps) => {
+function AboutSection(props: AboutSectionProps) {
+  const { id, ...rest } = props;
+
+  const {
+    title = "Meet Our Team",
+    vision = "Our vision is to revolutionize the investment landscape by creating accessible, transparent financial tools that empower individuals to build wealth with confidence. We believe that financial freedom should be attainable for everyone, not just the privileged few.",
+    teamMembers = [
+      {
+        name: "Alex Johnson",
+        role: "Founder & CEO",
+        bio: "Former investment banker with 10+ years experience at Goldman Sachs. MBA from Harvard Business School.",
+        image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+      },
+      {
+        name: "Sarah Chen",
+        role: "CTO",
+        bio: "Ex-Google engineer with expertise in AI and machine learning. PhD in Computer Science from Stanford.",
+        image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+      },
+      {
+        name: "Michael Rodriguez",
+        role: "Head of Product",
+        bio: "Previously led product teams at Stripe and Square. Passionate about creating intuitive financial products.",
+        image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
+      },
+    ],
+  } = rest;
+
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">

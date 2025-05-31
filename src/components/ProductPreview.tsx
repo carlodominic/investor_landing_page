@@ -31,7 +31,14 @@ const Feature = (
   );
 };
 
-const ProductPreview = () => {
+type ProductPreviewProps = {
+  id: string;
+  // add other props if needed
+};
+
+function ProductPreview(props: ProductPreviewProps) {
+  const { id, ...rest } = props;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

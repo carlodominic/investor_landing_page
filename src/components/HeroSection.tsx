@@ -3,19 +3,23 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-interface HeroSectionProps {
+type HeroSectionProps = {
+  id: string;
   title?: string;
   subtitle?: string;
   ctaText?: string;
   onCtaClick?: () => void;
-}
+};
 
-const HeroSection = ({
-  title = "Revolutionizing Investment for the Future",
-  subtitle = "We're building a platform that makes investing more accessible, transparent, and profitable for everyone. Join us on this journey to transform the financial landscape.",
-  ctaText = "Connect with Investors",
-  onCtaClick = () => console.log("CTA clicked"),
-}: HeroSectionProps) => {
+function HeroSection(props: HeroSectionProps) {
+  const {
+    id,
+    title = "Revolutionizing Investment for the Future",
+    subtitle = "We're building a platform that makes investing more accessible, transparent, and profitable for everyone. Join us on this journey to transform the financial landscape.",
+    ctaText = "Connect with Investors",
+    onCtaClick = () => console.log("CTA clicked"),
+  } = props;
+
   return (
     <section className="relative w-full min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 overflow-hidden">
       {/* Background elements */}

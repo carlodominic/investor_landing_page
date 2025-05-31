@@ -6,19 +6,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle, AlertCircle } from "lucide-react";
 
-interface NewsletterSignupProps {
+type NewsletterSignupProps = {
+  id: string;
   title?: string;
   description?: string;
   buttonText?: string;
   placeholderText?: string;
-}
+};
 
-const NewsletterSignup = ({
-  title = "Stay Updated on Our Progress",
-  description = "Join our newsletter to receive the latest updates about our product development, funding rounds, and launch dates.",
-  buttonText = "Subscribe",
-  placeholderText = "Enter your email",
-}: NewsletterSignupProps) => {
+function NewsletterSignup(props: NewsletterSignupProps) {
+  const { id, ...rest } = props;
+
+  const {
+    title = "Stay Updated on Our Progress",
+    description = "Join our newsletter to receive the latest updates about our product development, funding rounds, and launch dates.",
+    buttonText = "Subscribe",
+    placeholderText = "Enter your email",
+  } = rest;
+
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formState, setFormState] = useState<"idle" | "success" | "error">(
