@@ -199,8 +199,7 @@ const ProductPreview = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-muted-foreground italic mb-4">
-            * Product currently in development. Features and interface subject
-            to change.
+            * Website currently in development by Carlo Dominic Suaybaguio.
           </p>
         </motion.div>
       </div>
